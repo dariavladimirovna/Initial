@@ -269,6 +269,12 @@ public class StepImplementation extends HelpSteps {
         navigateClick(element);
     }
 
+    @И("^на форме присутствуют поля$")
+    public void проверка_наличия_полей(DataTable arg1) throws Throwable {
+        List<String> nav = arg1.asList(String.class);
+        assertEquals(nav, storageContractInputForm.getNavigationElementLabels());
+    }
+
 
 
 

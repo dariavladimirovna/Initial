@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StorageContractInputForm {
 
@@ -17,17 +18,13 @@ public class StorageContractInputForm {
     }
 
     @FindBy(how = How.XPATH, using = "//form//div[@class='row ng-scope']//label")
-    public List<WebElement> items;
+    public List<WebElement> navigationElementsInput;
 
-    public boolean checkItems(String el) {
-        for (WebElement elem : items) {
-            if (elem.getText().equals(el)) {
-                if (items.size() >= 1) {
-                    return true;
-                }
-            }
-            return true;
-        }
-        return false;
+    public List<String> getNavigationElementLabels() {
+
+        return navigationElementsInput
+                .stream().limit(13)
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 }
