@@ -128,6 +128,7 @@ public class StepImplementation extends HelpSteps {
     }
 
     @Тогда("^отображается \"Номер счёта 2-го порядка\" содержащий \"([^\"]*)\"$")
+    @И("^отображается \"Номер счёта\" содержащий \"([^\"]*)\"$")
     public void отображается_содержащий(String element) throws Throwable {
         resultTable.checkItems(element);
     }
@@ -246,6 +247,9 @@ public class StepImplementation extends HelpSteps {
     public void нажимает_кнопку_Сохранить() throws Throwable {
         secondStep.pushSaveButton();
     }
+
+
+
 
 
 }

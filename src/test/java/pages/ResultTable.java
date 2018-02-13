@@ -14,33 +14,33 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ResultTable extends HelpSteps{
+public class ResultTable extends HelpSteps {
 
-    public ResultTable(WebDriver driver){
+    public ResultTable(WebDriver driver) {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 50), this);
     }
 
-    @FindAll ( @FindBy (how = How.XPATH, using = "//self::node()//ol//*"))
+    @FindAll(@FindBy(how = How.XPATH, using = "//self::node()//ol//*"))
     public List<WebElement> tableTitle;
 
     public void checkTitle(String element) throws InterruptedException {
         Thread.sleep(1500);
-        for (WebElement elem : tableTitle){
-            if (elem.getText().equals(element)){
+        for (WebElement elem : tableTitle) {
+            if (elem.getText().equals(element)) {
 
-             //   isElementPresent(elem, 30);
+                //   isElementPresent(elem, 30);
                 assertTrue(elem.getText().contains(element));
                 //assertEquals(elem.
-                        //.getText(), element);
+                //.getText(), element);
             }
         }
     }
 
-    @FindBy (how = How.XPATH, using = "(//span[@class=\"ui-icon fa fa-search fa-fw\"])[1]")
+    @FindBy(how = How.XPATH, using = "(//span[@class=\"ui-icon fa fa-search fa-fw\"])[1]")
     private WebElement buttonSearch;
 
-    public void pushSearchButton(){
+    public void pushSearchButton() {
         isElementPresent(buttonSearch, 30);
         buttonSearch.click();
     }
@@ -48,10 +48,10 @@ public class ResultTable extends HelpSteps{
     @FindBy(how = How.XPATH, using = "//td[contains(text(),'')]")
     public List<WebElement> items;
 
-    public boolean checkItems(String el){
-        for (WebElement elem : items){
-            if (elem.getText().equals(el)){
-                if (items.size()>=1){
+    public boolean checkItems(String el) {
+        for (WebElement elem : items) {
+            if (elem.getText().equals(el)) {
+                if (items.size() >= 1) {
                     return true;
                 }
             }
@@ -59,11 +59,18 @@ public class ResultTable extends HelpSteps{
         }
         return false;
     }
-/*
-    @FindBy(how = How.XPATH, using = "//td[contains(text(),'')]")
-    public List<WebElement> items;
-
-    public boolean checkTableItems(String el) {
-    }
-*/
 }
+
+
+    /*
+        @FindBy(how = How.XPATH, using = "//td[contains(text(),'')]")
+        public List<WebElement> items;
+
+        public boolean checkTableItems(String el) {
+        }
+
+    public boolean checkNewItem(String el) {
+        pushSearchButton();
+
+    }
+    */
