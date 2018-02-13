@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features = {"src/test/java/features"},
         glue = "stepDefinition",
        // tags = {"@11111, @11112"},
-        tags = {"@11119"},
+        tags = {"@11120"},
         plugin = {"html:target/cucumber-html-report"}
 )
 public class TestRunner {

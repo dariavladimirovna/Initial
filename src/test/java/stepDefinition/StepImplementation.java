@@ -118,6 +118,7 @@ public class StepImplementation extends HelpSteps {
     @А("^пользователь выбирает пункт \"([^\"]*)\" в выпадающем списке \"Тип актива функциональный\"$")
     @Когда("^пользователь выбирает пункт \"([^\"]*)\" в выпадающем списке \"ID Плана Счетов\"$")
     @И("^пользователь выбирает пункт \"([^\"]*)\" в выпадающем списке \"содержит\"$")
+    @Тогда("^пользователь выбирает пункт \"([^\"]*)\" в выпадающем списке$")
     public void пользователь_выбирает_пункт_в_выпадающем_списке(String value) throws Throwable {
         chooseOptionInModalWindow(value);
     }
@@ -246,6 +247,26 @@ public class StepImplementation extends HelpSteps {
     @И("^нажимает на кнопку \"Сохранить\"$")
     public void нажимает_кнопку_Сохранить() throws Throwable {
         secondStep.pushSaveButton();
+    }
+
+    @Когда("^пользователь устанавливает флаг$")
+    public void пользователь_устанавливает_флаг() throws Throwable {
+        checkboxClick();
+    }
+
+    @Когда("^пользователь нажимает на кнопку \"([^\"]*)\"$")
+    public void пользователь_нажимает_на_кнопку(String button) throws Throwable {
+        pushButtonContains(button);
+    }
+
+    @Когда("^пользователь наводит указатель на \"([^\"]*)\" в выпадающем списке$")
+    public void пользователь_наводит_указатель_на_в_выпадающем_списке(String element) throws Throwable {
+        navigateMouseTo(element);
+    }
+
+    @Когда("^пользователь наводит и выбирает пункт \"([^\"]*)\" в выпадающем списке$")
+    public void пользователь_наводит_и_выбирает(String element) throws Throwable {
+        navigateClick(element);
     }
 
 

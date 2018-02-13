@@ -15,6 +15,7 @@ public class InitialSteps extends HelpSteps{
     public static ResultTable resultTable;
     public static ModalWindowSearchTable modalWindowSearchTable;
     public static SecondStep secondStep;
+    public static StorageContractInputForm storageContractInputForm;
 
     public static WebDriver getDriver(){
         if (driver == null){
@@ -23,13 +24,14 @@ public class InitialSteps extends HelpSteps{
             options.addArguments("-incognito");
             options.addArguments("start-maximized");
             options.addArguments("dom.webnotifications.enabled");
-            DesiredCapabilities cap = DesiredCapabilities.chrome();
-            cap.setCapability(ChromeOptions.CAPABILITY, options);
-            driver = new ChromeDriver(cap);
+         //   DesiredCapabilities cap = DesiredCapabilities.chrome();
+         //   cap.setCapability(ChromeOptions.CAPABILITY, options);
+            driver = new ChromeDriver(options);
             header = new Header(driver);
             resultTable = new ResultTable(driver);
             loginForm = new LoginForm(driver);
             secondStep = new SecondStep(driver);
+            storageContractInputForm = new StorageContractInputForm(driver);
             modalWindowSearchTable = new ModalWindowSearchTable(driver);
         }
         return driver;
